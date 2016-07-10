@@ -46,8 +46,8 @@ print(("[ -f {0}/intermediate.pem ] || "
        "-O {0}/intermediate.pem").format(confpath))
 print(("cat {1}/{0}/certificate.crt "
        "{1}/intermediate.pem "
-       "> /etc/letsencrypt-certs/{0}/chained.pem").format(domains[0], confpath))
-print(("(crontab -l; echo '0 0 1,11,21 * * /root/acme-tiny/renew.sh {0} 2>> "
+       "> {1}/{0}/chained.pem").format(domains[0], confpath))
+print(("(crontab -l; echo '0 0 1,11,21 * * {1}/renew.sh {0} 2>> "
        "{1}/acme-tiny.log') | crontab").format(domains[0], path))
 
 # vim: set et sw=4 ts=4 :

@@ -10,7 +10,7 @@ DIR=/etc/letsencrypt-certs/$1
 ACMEDIR=/var/www/letsencrypt
 ACMEPATH=${0%/*}
 
-openssl x509 -noout -in $DIR/certificate.crt -checkend 846000 && exit || true
+openssl x509 -noout -in $DIR/certificate.crt -checkend 1296000 && exit || true
 echo "RENEWING $1"
 >&2 echo "RENEWING $1"
 date

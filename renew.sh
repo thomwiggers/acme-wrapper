@@ -16,4 +16,5 @@ echo "RENEWING $1"
 date
 python $ACMEPATH/acme-tiny/acme_tiny.py --account-key $ACMEPATH/account.key --csr $DIR/request.csr --acme-dir /var/www/letsencrypt > $DIR/certificate.crt || exit
 cat $DIR/certificate.crt $DIR/../intermediate.pem > $DIR/chained.pem
-systemctl reload nginx
+shift
+systemctl reload nginx $@
